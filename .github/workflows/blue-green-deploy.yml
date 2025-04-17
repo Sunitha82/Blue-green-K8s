@@ -87,7 +87,7 @@ jobs:
     - name: Update application to new environment
       run: |
         # Use kubectl to patch the Application resource
-        kubectl patch application blue-green-demo -n argocd --type=merge -p "{\"spec\":{\"source\":{\"path\":\"Blue-green-K8s/overlays/${{ steps.active-env.outputs.next_env }}\"}}}"
+        kubectl patch application blue-green-demo -n argocd --type=merge -p "{\"spec\":{\"source\":{\"path\":\"overlays/${{ steps.active-env.outputs.next_env }}\"}}}"
         echo "Updated path to: overlays/${{ steps.active-env.outputs.next_env }}"
         
     - name: Wait for sync to start
@@ -205,7 +205,7 @@ jobs:
       if: steps.test-env.outputs.test_succeeded == 'false'
       run: |
         echo "Test failed, rolling back to previous environment..."
-        kubectl patch application blue-green-demo -n argocd --type=merge -p "{\"spec\":{\"source\":{\"path\":\"Blue-green-K8s/overlays/${{ steps.active-env.outputs.current_env }}\"}}}"
+        kubectl patch application blue-green-demo -n argocd --type=merge -p "{\"spec\":{\"source\":{\"path\":\"overlays/${{ steps.active-env.outputs.current_env }}\"}}}"
         
         # Wait for rollback to complete (simplified waiting)
         sleep 30
