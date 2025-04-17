@@ -4,7 +4,7 @@ on:
   push:
     branches: [ main ]
     paths:
-    - 'Kubernetes-Blue-Greeen-Deployment/**'
+    - 'Blue-green-K8s/**'
 
 jobs:
   deploy:
