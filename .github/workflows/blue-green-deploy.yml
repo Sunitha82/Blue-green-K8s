@@ -4,7 +4,7 @@ on:
   push:
     branches: [ main ]
     paths:
-    - 'Blue-green-K8s/**'
+    - '.github/workflows/blue-green-deploy.yml'
 
 jobs:
   deploy:
