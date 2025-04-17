@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/Sunitha82/Blue-green-K8s.git
     targetRevision: HEAD
-    path: Kubernetes-Blue-Greeen-Deployment/overlays/blue-active  # Initially pointing to blue
+    path: Blue-green-K8s/overlays/blue-active  # Initially pointing to blue
   destination:
     server: https://kubernetes.default.svc
     namespace: blue-green-demo
