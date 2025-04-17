@@ -88,7 +88,7 @@ jobs:
       run: |
         # Use kubectl to patch the Application resource
         kubectl patch application blue-green-demo -n argocd --type=merge -p "{\"spec\":{\"source\":{\"path\":\"Kubernetes-Blue-Greeen-Deployment/overlays/${{ steps.active-env.outputs.next_env }}\"}}}"
-        echo "Updated path to: Kubernetes-Blue-Greeen-Deployment/overlays/${{ steps.active-env.outputs.next_env }}"
+        echo "Updated path to: Blue-green-K8s/overlays/${{ steps.active-env.outputs.next_env }}"
         
     - name: Wait for sync to start
       run: |
